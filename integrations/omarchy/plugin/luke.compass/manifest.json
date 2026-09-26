@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "luke.compass",
+  "name": "Compass",
+  "version": "1.0.0",
+  "author": "Compass",
+  "description": "Due and overdue counts from the Compass vault, plus capture.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Compass.qml"
+  },
+  "barWidget": {
+    "displayName": "Compass",
+    "description": "Today's due and overdue tasks",
+    "category": "Status",
+    "allowMultiple": false
+  }
+}

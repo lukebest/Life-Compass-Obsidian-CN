@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(01 Journal/**)",
+      "Write(08 Tasks/**)",
+      "Write(04 Projects/**)",
+      "Write(05 People/**)",
+      "Write(06 Writing/**)",
+      "Write(Agent/**)",
+      "Write(inbox/**)"
+    ],
+    "deny": [
+      "Shell(*)",
+      "Shell(rm)",
+      "Shell(mv)",
+      "Shell(sudo)",
+      "Shell(git)",
+      "Shell(compass)",
+      "Write(.obsidian/**)",
+      "Write(Templates/**)",
+      "Write(Meta/**)",
+      "Write(Prompts/**)",
+      "Write(integrations/**)",
+      "Write(.cursor/**)",
+      "Write(scripts/**)",
+      "Write(Guide/**)",
+      "Write(wiki/**)",
+      "Write(00 Dashboards/**)",
+      "Write(02 Retreats/**)",
+      "Write(03 Planning/**)",
+      "Write(07 Library/**)",
+      "Write(09 Reading/**)",
+      "Write(**/*.key)",
+      "Write(**/.env*)",
+      "Read(.env*)",
+      "Read(**/*.key)"
+    ]
+  }
+}

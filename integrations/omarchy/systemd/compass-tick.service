@@ -1,0 +1,6 @@
+[Unit]
+Description=Compass scheduler tick
+
+[Service]
+Type=oneshot
+ExecStart=@COMPASS@ tick

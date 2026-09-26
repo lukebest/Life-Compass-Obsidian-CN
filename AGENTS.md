@@ -23,6 +23,8 @@ You have judgment, not authority. Analyse, summarise, draft, and recommend freel
 | `Guide/` | how the system works and why | read first when unsure |
 | `wiki/`, `inbox/` | knowledge layer (claude-obsidian plugin, optional) | follow `wiki/routing-map.md`; writes go through the plugin's inspect, approve, apply transaction |
 | `scripts/` | maintainer tools (reading plan generator, template build) | read |
+| `Agent/` | autonomous run log and read-only reports from the Omarchy integration | append; do not delete |
+| `integrations/` | desktop integration (Omarchy CLI, timers, bar widget) | read; edit only when the task is about that integration |
 | `.obsidian/` | app and plugin settings | never edit |
 
 ## Conventions
@@ -65,3 +67,21 @@ Say what you will not do, why in one clause, and what you can do instead. Exampl
 
 ## Prompt library
 Recurring jobs are written once in `Prompts/`. When asked to run one (by name, or by a button whose text says "Read Prompts/..."), read that note and follow its `## Prompt` section exactly for the note the person has open. The note's `writes` and `risk` properties tell you what it may touch.
+
+## Autonomous mode
+This section applies only when the environment variable `COMPASS_AUTONOMOUS` is `1`, or the prompt starts with the line `Compass autonomous job`. It is how `integrations/omarchy` runs the default Omarchy agent unattended. Interactive sessions ignore this section and keep the rules above, including "ask before you edit".
+
+You may, without asking first:
+- Append under `## AI 简报`, `## AI 复盘`, or `## 今日活动` in the target daily note, and under `### 哪些事进展顺利` or `### 哪些事没有进展顺利` in the weekly note. Mark those additions as AI drafts. Do not change or remove any line already in the note, and do not set `dq_*`, `habit_*`, or `wheel_*` values.
+- Append task lines under `## Inbox` in `08 Tasks/Tasks.md`. When the job is triage or capture routing, rewrite existing task lines (tags, dates, checkboxes). You may move a task line only by adding that same line under the destination heading and then removing the original line.
+- Move a Kanban card when the job is board grooming, by inserting the exact card line under the target lane and then removing it from the source lane. Do not rewrite the card text.
+- Create or append files in `Agent/Log/` and `Agent/Reports/`.
+
+You still never:
+- Delete a file or a heading.
+- Rewrite or reorder journal, retreat, or planning text that was already there. Copying a captured sentence into `## 日记` is an append, not a rewrite.
+- Fill in daily-question scores. Suggest them in the draft, and leave the properties blank.
+- Touch `.obsidian/`, `Templates/`, `Meta/views/`, `Prompts/`, `integrations/`, or `wiki/` (wiki writes stay on the claude-obsidian transaction).
+- Invent journal entries, scores, or tasks the person did not capture.
+
+Every autonomous run is snapshotted outside the vault. `compass undo <run-id>` restores it. If a write is not in the job's `writes` list, do not do it.

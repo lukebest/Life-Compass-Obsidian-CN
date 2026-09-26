@@ -1,0 +1,12 @@
+[Unit]
+Description=Compass foreground activity sampler
+After=graphical-session.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=10
+ExecStart=@COMPASS@ activity
+
+[Install]
+WantedBy=default.target

@@ -20,6 +20,7 @@ Seven workflows, one vault, dashboards on top:
 | + | Research and publishing | Web viewer, SEO, Vault Lens | [[16 SEO, Web Viewer, and Vault Lens]], [[17 Search Providers]] |
 | + | Obsidian MCP bridge | Local REST API `/mcp`, `.mcp.example.json` | [[19 Obsidian MCP Bridge]] |
 | + | Life OS application | Native navigation, capture, live Today status, and governed AI entry points | [[21 Life OS Application]] |
+| + | Omarchy 桌面集成 | `integrations/omarchy`, `Prompts/Auto` | [[24 Omarchy 集成]] |
 
 Read next: [[01 Principles]] (the ideas behind it), [[02 Plugins]] (what is installed and the first-open checklist), [[11 Build Order]] (why one layer at a time), [[12 Resources and Links]].
 

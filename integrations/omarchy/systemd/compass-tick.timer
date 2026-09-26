@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Compass jobs and reminders
+
+[Timer]
+OnCalendar=*-*-* *:00,15,30,45:00
+Persistent=true
+AccuracySec=1min
+Unit=compass-tick.service
+
+[Install]
+WantedBy=timers.target

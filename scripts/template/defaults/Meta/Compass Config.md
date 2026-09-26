@@ -37,6 +37,31 @@ wheel_areas:
   - wheel_growth
   - wheel_fun
   - wheel_meaning
+automation:
+  enabled: true
+  vault_path:
+  quiet_hours: "23:00-07:00"
+  max_nudges_per_day: 8
+  task_exclude:
+    - 09 Reading/
+  jobs:
+    morning-brief: "07:30"
+    evening-recap: "21:30"
+    triage: "every 3h 09:00-21:00"
+    board-groom: "18:00"
+    weekly-draft: "Sun 20:00"
+    quarter-prep: "quarter-last-week 20:00"
+    vault-health: "Sun 19:00"
+    nudge: "15m"
+    activity-rollup: "23:50"
+  activity:
+    sample_seconds: 30
+    exclude: "hyprlock,omarchy-lock,swaylock"
+    categories:
+      code: "cursor,code,zed,nvim,vim,emacs,alacritty,ghostty,kitty,foot"
+      writing: "obsidian"
+      browser: "chromium,firefox,brave,chrome"
+      comms: "signal,telegram,discord,slack"
 ---
 # 人生罗盘配置
 
@@ -85,3 +110,18 @@ questions:
 | `board_done_lanes` | 在“看板”仪表盘中计为已完成的看板分栏 |
 
 如果不使用英文，可以重命名键（例如 `dq_aprender`）并翻译 `text` 的值；图表会根据属性键自动生成标签。系统内部路径、前缀和代码键应保持不变。
+
+## 自动化（Omarchy）
+
+`automation` 只给 `integrations/omarchy` 的 `compass` 命令使用。仪表盘不读它。
+
+| 属性 | 说明 |
+| --- | --- |
+| `enabled` | 为 false 时，定时任务和提醒都不跑。状态栏仍会更新。 |
+| `vault_path` | 留空表示使用这份配置所在的库。安装到另一份库时再填绝对路径。 |
+| `quiet_hours` | 这段时间不发提醒，格式 `HH:MM-HH:MM`，可以跨过午夜。简报和复盘不看这个字段。 |
+| `max_nudges_per_day` | 每天最多几条规则提醒。 |
+| `task_exclude` | 统计到期和逾期时跳过的路径前缀。阅读计划默认排除。 |
+| `jobs` | 每个任务的时间。改时间后，下一次 `compass tick` 会按新时间跑。计时器本身每 15 分钟醒来一次。 |
+| `activity.categories` | 前台应用类名里包含这些词时，归入该类别。原始记录不进库，也不含窗口标题。 |
+| `activity.exclude` | 这些类名不计数，例如锁屏。 |
