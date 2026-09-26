@@ -721,9 +721,40 @@
       "setFileExistsBehavior": true
     }
   ],
+  "inputPrompt": "single-line",
+  "persistInputPromptDrafts": true,
+  "useSelectionAsCaptureValue": true,
+  "namePastedImagesAfterNoteTitle": false,
+  "searchNestedChoices": true,
+  "templateFolderLauncherRow": "bottom",
+  "devMode": false,
   "templateFolderPaths": [
     "Templates"
   ],
+  "announceUpdates": "major",
+  "version": "2.27.0",
+  "globalVariables": {},
+  "onePageInputEnabled": false,
+  "disableOnlineFeatures": true,
+  "enableUriCallbacks": false,
+  "enableRibbonIcon": false,
+  "showCaptureNotification": true,
+  "showInputCancellationNotification": false,
+  "enableTemplatePropertyTypes": false,
+  "dateAliases": {
+    "t": "today",
+    "tm": "tomorrow",
+    "yd": "yesterday",
+    "nw": "next week",
+    "nm": "next month",
+    "ny": "next year",
+    "lw": "last week",
+    "lm": "last month",
+    "ly": "last year"
+  },
+  "ai": {
+    "providers": []
+  },
   "migrations": {
     "migrateToMacroIDFromEmbeddedMacro": true,
     "useQuickAddTemplateFolder": true,
@@ -739,12 +770,7 @@
     "setProviderModelDiscoveryMode": true,
     "migrateToMultipleTemplateFolders": true,
     "refreshStaleDefaultModelSeeds": true,
-    "pinAiModelRefs": true
-  },
-  "version": "2.23.0",
-  "disableOnlineFeatures": true,
-  "ai": {
-    "providers": []
-  },
-  "globalVariables": {}
+    "pinAiModelRefs": true,
+    "migrateProviderApiKeysToSecretStorage": true
+  }
 }

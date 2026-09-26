@@ -1443,22 +1443,22 @@ function checkKeywordDensity(content, file, settings) {
   };
   const keywordLower = keyword.toLowerCase();
   const cleanContentLower = cleanContent.toLowerCase();
-  const keywordWords = keywordLower.split(/\s+/).filter((word) => word.length > 0).map((w) => stripApostrophes(w)).filter((w) => w.length > 0);
+  const splitIntoWords = (text) => text.split(/[\s‐‑‒–—―-]+/).map(normalizeContentWordToken).filter((w) => w.length > 0);
+  const keywordWords = splitIntoWords(keywordLower);
   if (keywordWords.length === 0) {
     return Promise.resolve(results);
   }
   let keywordCount = 0;
-  const contentWords = cleanContentLower.split(/\s+/);
+  const contentWords = splitIntoWords(cleanContentLower);
   for (let i = 0; i <= contentWords.length - keywordWords.length; i++) {
-    const slice = contentWords.slice(i, i + keywordWords.length).map(normalizeContentWordToken);
+    const slice = contentWords.slice(i, i + keywordWords.length);
     if (slice.length !== keywordWords.length) continue;
     const consecutiveMatch = keywordWords.every((kw, j) => slice[j] === kw);
     if (consecutiveMatch) {
       keywordCount++;
     }
   }
-  const words = cleanContentLower.split(/\s+/).map(normalizeContentWordToken).filter((w) => w.length > 0);
-  const totalWords = words.length;
+  const totalWords = contentWords.length;
   if (totalWords === 0) {
     results.push({
       passed: false,
@@ -6008,3 +6008,5 @@ var SEOPlugin = class extends import_obsidian11.Plugin {
     }
   }
 };
+
+/* nosourcemap */
