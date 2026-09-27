@@ -1,7 +1,7 @@
 ---
 locale: zh-CN
-birthdate:
-life_expectancy: 80
+birthdate: 1992-10-13
+life_expectancy: 120
 daily_folder: 01 Journal/Daily
 weekly_folder: 01 Journal/Weekly
 quarterly_folder: 01 Journal/Quarterly
@@ -39,29 +39,29 @@ wheel_areas:
   - wheel_meaning
 automation:
   enabled: true
-  vault_path:
-  quiet_hours: "23:00-07:00"
+  vault_path: null
+  quiet_hours: 23:00-07:00
   max_nudges_per_day: 8
   task_exclude:
     - 09 Reading/
   jobs:
-    morning-brief: "07:30"
-    evening-recap: "21:30"
-    triage: "every 3h 09:00-21:00"
-    board-groom: "18:00"
-    weekly-draft: "Sun 20:00"
-    quarter-prep: "quarter-last-week 20:00"
-    vault-health: "Sun 19:00"
-    nudge: "15m"
-    activity-rollup: "23:50"
+    morning-brief: 07:30
+    evening-recap: 21:30
+    triage: every 3h 09:00-21:00
+    board-groom: 18:00
+    weekly-draft: Sun 20:00
+    quarter-prep: quarter-last-week 20:00
+    vault-health: Sun 19:00
+    nudge: 15m
+    activity-rollup: 23:50
   activity:
     sample_seconds: 30
-    exclude: "hyprlock,omarchy-lock,swaylock"
+    exclude: hyprlock,omarchy-lock,swaylock
     categories:
-      code: "cursor,code,zed,nvim,vim,emacs,alacritty,ghostty,kitty,foot"
-      writing: "obsidian"
-      browser: "chromium,firefox,brave,chrome"
-      comms: "signal,telegram,discord,slack"
+      code: cursor,code,zed,nvim,vim,emacs,alacritty,ghostty,kitty,foot
+      writing: obsidian
+      browser: chromium,firefox,brave,chrome
+      comms: signal,telegram,discord,slack
 ---
 # 人生罗盘配置
 

@@ -16,5 +16,23 @@
       ],
       "key": "C"
     }
+  ],
+  "life-os-app:open-today": [
+    {
+      "modifiers": [
+        "Alt",
+        "Meta"
+      ],
+      "key": "T"
+    }
+  ],
+  "life-os-app:open-review": [
+    {
+      "modifiers": [
+        "Alt",
+        "Meta"
+      ],
+      "key": "R"
+    }
   ]
 }

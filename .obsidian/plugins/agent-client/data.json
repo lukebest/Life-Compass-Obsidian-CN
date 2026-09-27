@@ -106,7 +106,7 @@
     "tables": true
   },
   "debugMode": false,
-  "nodePath": "",
+  "nodePath": "/home/luke/.local/share/mise/shims/node",
   "exportSettings": {
     "defaultFolder": "Agent Client",
     "filenameTemplate": "agent_client_{date}_{time}",
