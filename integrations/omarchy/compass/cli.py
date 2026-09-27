@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+import shlex
 import subprocess
 import sys
 from datetime import datetime
@@ -23,13 +24,26 @@ def _capture_text():
     preset = os.environ.get("COMPASS_CAPTURE_TEXT")
     if preset is not None:
         return preset.strip()
+    # The Omarchy menu prompt records one key at a time and never sees an IME
+    # commit, so Chinese never appears. Zenity is a real text field; fcitx's
+    # GTK module has to be selected explicitly or GTK leaves the module unset.
+    env = os.environ.copy()
+    env["GTK_IM_MODULE"] = "fcitx"
+    env.setdefault("QT_IM_MODULE", "fcitx")
+    env.setdefault("XMODIFIERS", "@im=fcitx")
     try:
         result = subprocess.run(
-            ["omarchy", "menu", "input", "捕获到 Compass", "--width", "520"],
+            [
+                "zenity", "--entry",
+                "--title", "捕获到 Compass",
+                "--text", "记下一句。可切换中文输入法，回车保存。",
+                "--width", "520",
+            ],
             capture_output=True,
             text=True,
             timeout=300,
             check=False,
+            env=env,
         )
     except (OSError, subprocess.TimeoutExpired):
         return ""
@@ -167,12 +181,26 @@ def cmd_open(args):
     return 0
 
 
-def cmd_agent(_args):
+def agent_terminal_command(bin_path):
+    """One shell string. omarchy-launch-or-focus evals it, so the path must stay one argument."""
+    return "omarchy-launch-tui --app-id=compass-agent %s agent --inside" % shlex.quote(str(bin_path))
+
+
+def cmd_agent(args):
     cfg = load()
-    command = "cd %s && exec omarchy-agent" % json.dumps(str(cfg.vault))
-    argv = ["omarchy", "launch", "or", "focus", "tui", "--app-id=compass-agent", "bash", "-lc", command]
+    if args.inside:
+        os.chdir(cfg.vault)
+        # --inline runs the agent in this terminal. Without it, omarchy-agent
+        # opens a second terminal and this one exits immediately.
+        os.execvp("omarchy-agent", ["omarchy-agent", "--inline"])
+    bin_path = Path(__file__).resolve().parents[1] / "bin" / "compass"
     try:
-        subprocess.Popen(argv, start_new_session=True)
+        subprocess.Popen(
+            ["omarchy-launch-or-focus", "compass-agent", agent_terminal_command(bin_path)],
+            start_new_session=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
     except OSError as exc:
         raise SystemExit("compass: could not launch the default agent: %s" % exc)
     return 0
@@ -249,6 +277,7 @@ def main(argv=None):
     open_cmd.set_defaults(func=cmd_open)
 
     agent = sub.add_parser("agent")
+    agent.add_argument("--inside", action="store_true")
     agent.set_defaults(func=cmd_agent)
 
     install_cmd = sub.add_parser("install")

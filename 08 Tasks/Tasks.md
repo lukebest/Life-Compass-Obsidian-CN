@@ -17,5 +17,9 @@ Task format (Obsidian Tasks plugin, emoji format):
 ## Inbox
 - [ ] Open the Setup dashboard and work through it, then tick this off
 
+- [ ] 完成SCOPE的adhd学习 ➕ 2026-09-27
+- [ ] 完成非线性近似的技术合作项目的材料 ➕ 2026-09-27
+- [ ] 完成simulation交流材料 ➕ 2026-09-27
+- [ ] 完成流控材料准备 ➕ 2026-09-27 🧭capture:84cde7
 ## Someday
 - 

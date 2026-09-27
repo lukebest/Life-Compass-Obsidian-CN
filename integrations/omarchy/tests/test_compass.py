@@ -3,6 +3,7 @@
 
 import json
 import os
+import shlex
 import sys
 import tempfile
 import unittest
@@ -13,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from compass import activity, guard, nudge, runner, vault
 from compass.config import load
+from compass.cli import agent_terminal_command
 from compass.install import add_widget, insert_bindings, insert_menu, install, remove_menu, uninstall
 from compass.scheduler import parse_spec, target_for
 from compass.yamlfront import parse_yaml
@@ -308,6 +310,13 @@ example: false
         self.assertNotIn("-- >>> compass", bindings.read_text(encoding="utf-8"))
         self.assertNotIn("// >>> compass", menu.read_text(encoding="utf-8"))
         self.assertFalse((self.home / ".config/systemd/user/compass-tick.timer").exists())
+
+    def test_agent_launch_keeps_the_binary_as_one_argument(self):
+        command = agent_terminal_command("/tmp/vault with space/bin/compass")
+        parts = shlex.split(command)
+        self.assertEqual(parts[:2], ["omarchy-launch-tui", "--app-id=compass-agent"])
+        self.assertEqual(parts[2], "/tmp/vault with space/bin/compass")
+        self.assertEqual(parts[3:], ["agent", "--inside"])
 
     def test_menu_helpers_round_trip(self):
         original = '{\n  "about": {"label": "About"}\n}\n'

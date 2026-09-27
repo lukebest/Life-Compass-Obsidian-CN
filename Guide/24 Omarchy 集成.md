@@ -27,7 +27,7 @@ integrations/omarchy/install.sh
 
 | 入口 | 作用 |
 | --- | --- |
-| `Super+Shift+C` | 弹出输入（可以接着用语音输入）。原文先进入 `08 Tasks/Tasks.md` 的 Inbox，再由 agent 路由成任务、日记或项目想法 |
+| `Super+Shift+C` | 弹出文本框，可以用系统输入法打中文，也可以接着语音输入。原文先进入 `08 Tasks/Tasks.md` 的 Inbox，再由 agent 路由成任务、日记或项目想法 |
 | `Super+Shift+J` | 打开今天的日记 |
 | `Super+Alt+A` | 在这份库里打开默认 agent，交互式对话 |
 | 状态栏数字 | `到期·逾期`。悬停看今天最多三件事。左键打开 Compass 菜单，右键捕获。暂停时图标变灰 |
