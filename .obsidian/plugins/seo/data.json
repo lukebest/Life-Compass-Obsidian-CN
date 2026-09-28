@@ -200,88 +200,6 @@
       "noticesCount": 0
     },
     {
-      "file": "06 Writing/Newsletters/Example Newsletter - Effort not results.md",
-      "displayName": "Newsletters/Example Newsletter - Effort not results.md",
-      "checks": {
-        "titleLength": [],
-        "metaDescription": [],
-        "titleH1Uniqueness": [],
-        "keywordInTitle": [],
-        "keywordInDescription": [],
-        "keywordInHeadings": [],
-        "keywordInSlug": [],
-        "slugFormat": [],
-        "keywordDensity": [],
-        "headingOrder": [
-          {
-            "passed": false,
-            "message": "No H1 heading found",
-            "suggestion": "Add an H1 heading at the beginning of your content",
-            "severity": "warning"
-          }
-        ],
-        "contentLength": [
-          {
-            "passed": false,
-            "message": "Content too short: 71 words",
-            "suggestion": "Aim for at least 300 words",
-            "severity": "warning"
-          }
-        ],
-        "duplicateTitles": [],
-        "duplicateDescriptions": [],
-        "duplicateContent": [],
-        "altText": [
-          {
-            "passed": false,
-            "message": "Wikilink media missing alt text: Triggers (Marshall Goldsmith)#^daily-questions",
-            "suggestion": "Add alt text using ![[media.png|alt text]] syntax or consider using standard markdown media syntax",
-            "severity": "error",
-            "position": {
-              "line": 20,
-              "searchText": "![[Triggers (Marshall Goldsmith)#^daily-questions]]",
-              "context": "\n## Body\n![[Triggers (Marshall Goldsmith)#^daily-questions]]\n\nThat one reframe is why my journaling finally stuck..."
-            }
-          }
-        ],
-        "imageFileNames": [
-          {
-            "passed": true,
-            "message": "All images have good file names",
-            "severity": "info"
-          }
-        ],
-        "nakedLinks": [
-          {
-            "passed": true,
-            "message": "No naked links found",
-            "severity": "info"
-          }
-        ],
-        "brokenLinks": [
-          {
-            "passed": true,
-            "message": "No broken internal links found",
-            "severity": "info"
-          }
-        ],
-        "potentiallyBrokenLinks": [],
-        "potentiallyBrokenEmbeds": [],
-        "externalBrokenLinks": [],
-        "readingLevel": [
-          {
-            "passed": true,
-            "message": "Good reading level: 5.3 (Very easy to read)",
-            "severity": "info"
-          }
-        ]
-      },
-      "overallScore": 65,
-      "issuesCount": 1,
-      "warningsCount": 2,
-      "noticesCount": 0
-    },
-    {
       "file": "06 Writing/Course Content/Course Board.md",
       "displayName": "Course Content/Course Board.md",
       "checks": {
@@ -446,5 +364,5 @@
       "noticesCount": 0
     }
   ],
-  "lastScanTimestamp": 1790429109784
+  "lastScanTimestamp": 1790597260040
 }
