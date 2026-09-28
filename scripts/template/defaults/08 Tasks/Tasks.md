@@ -15,7 +15,7 @@ Task format (Obsidian Tasks plugin, emoji format):
 - `- [ ] Draft outline #project/lifeos-vault` shows on the project note
 
 ## Inbox
-- [ ] Open the Setup dashboard and work through it, then tick this off
+- [x] Open the Setup dashboard and work through it, then tick this off ✅ 2026-09-28
 
 ## Someday
 -

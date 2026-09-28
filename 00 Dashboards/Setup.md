@@ -1,9 +1,9 @@
 ---
 status: open
-setup_claude_login: false
-setup_mcp_registered: false
-setup_vault_lens: false
-setup_backup: false
+setup_claude_login: true
+setup_mcp_registered: true
+setup_vault_lens: true
+setup_backup: true
 tags:
   - setup
 ---
