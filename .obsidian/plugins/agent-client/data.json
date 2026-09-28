@@ -143,7 +143,24 @@
     "showEmojis": true,
     "fontSize": null
   },
-  "savedSessions": [],
+  "savedSessions": [
+    {
+      "sessionId": "98ecf5d6-598e-46ab-9e9a-8907903cf57e",
+      "agentId": "cursor-agent",
+      "cwd": "/home/luke/Work/Life-Compass-Obsidian-CN",
+      "title": "Read Prompts/16 Onboarding Assistant.md with va...",
+      "createdAt": "2026-09-28T02:49:47.679Z",
+      "updatedAt": "2026-09-28T03:10:30.672Z"
+    },
+    {
+      "sessionId": "8f4fefc6-3808-41e8-867d-265342d48f98",
+      "agentId": "cursor-agent",
+      "cwd": "/home/luke/Work/Life-Compass-Obsidian-CN",
+      "title": "Read Prompts/01 Morning Start.md with vault_rea...",
+      "createdAt": "2026-09-28T02:47:50.888Z",
+      "updatedAt": "2026-09-28T02:48:15.923Z"
+    }
+  ],
   "lastUsedModels": {},
   "lastUsedModes": {},
   "lastUsedConfigOptions": {},
