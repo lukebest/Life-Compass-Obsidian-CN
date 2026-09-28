@@ -33,6 +33,17 @@ exec "$HOME/.local/bin/node" "/path/to/lib/node_modules/@agentclientprotocol/cla
 
 验证方法：打开 Agent Client 对话并发送 `hello`。收到回复说明包装脚本可用。
 
+### 使用 Cursor CLI
+
+Cursor CLI 自带 ACP 服务，不需要再装适配器。前提是已经在终端里登录过：`cursor-agent login`。
+
+1. 打开“设置 → Agent Client → Custom agents”，新增一项。
+2. 命令填 `which cursor-agent` 打印出来的绝对路径。从桌面启动的 Obsidian 往往没有终端里的 PATH，所以不要只写 `cursor-agent`。
+3. 参数填 `acp`。
+4. 在 Default agent 里选中 Cursor CLI。
+
+验证方法：打开 Agent Client，确认当前智能体是 Cursor CLI，然后发送 `hello`。
+
 ## 在笔记中嵌入对话和按钮
 
 使用语言标记为 `agent-client` 或 `agent` 的代码块，并在代码块内部使用 YAML。插件文档：[Embeddable blocks](https://rait-09.github.io/obsidian-agent-client/usage/embeddable-blocks.html)。

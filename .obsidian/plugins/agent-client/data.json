@@ -93,8 +93,19 @@
       "enabled": true
     }
   },
-  "customAgents": [],
-  "defaultAgentId": "gemini-cli",
+  "customAgents": [
+    {
+      "id": "cursor-agent",
+      "displayName": "Cursor CLI",
+      "command": "/home/luke/.local/share/mise/installs/cursor-agent/latest/bin/cursor-agent",
+      "args": [
+        "acp"
+      ],
+      "env": [],
+      "enabled": true
+    }
+  ],
+  "defaultAgentId": "cursor-agent",
   "autoAllowPermissions": false,
   "autoMentionActiveNote": false,
   "expandWikilinkContext": false,
